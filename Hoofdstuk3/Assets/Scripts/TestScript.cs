@@ -15,7 +15,7 @@ public class TestScript : MonoBehaviour
 
         searchObj = GameObject.FindWithTag("Enemy");
 
-        Destroy(searchObj);
+        //Destroy(searchObj);
 
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");   //als meerdere objecten een tag hebben gebruik je deze ipv findWithTag

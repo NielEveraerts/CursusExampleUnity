@@ -11,6 +11,11 @@ public class PhysicsTest : MonoBehaviour
     public int jumpForce;
     bool jump = false;
 
+    public GameObject bullet;
+    public float bulletSpeed;
+    bool shoot = false;
+    public Transform bulletPos;
+
     void Awake(){                           //ook mogelijk om in start te doen maar best practice om in awake te doen
         rb = GetComponent<Rigidbody>();
     }
@@ -29,6 +34,10 @@ public class PhysicsTest : MonoBehaviour
         if(Input.GetButtonDown("Jump")){
             jump = true;                        //we willen springen = physics -> in FixedUpdate doen, dit met een bool, is die true dan gaat in fixedUpdate de jump functie uitgevoerd worden
         };
+
+        if(Input.GetButtonDown("Fire1")){
+            shoot = true;
+        };
     }
 
     void FixedUpdate(){             //physics based functionaliteiten altijd via fixedUpdate doen aangezien dit meer reliable is
@@ -37,9 +46,18 @@ public class PhysicsTest : MonoBehaviour
             Jump();
             jump = false;
         }
+        if(shoot){
+            Shoot();
+            shoot = false;
+        }
     }
 
     void Jump(){
         rb.AddForce(0, jumpForce, 0);
+    }
+
+    void Shoot(){
+        GameObject spawnedBullet = Instantiate(bullet, bulletPos.position, bullet.transform.rotation);
+        spawnedBullet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletSpeed);              //zie dat het bulletPreFab een rigidBody heeft, anders kan je geen velocity geven aan het object
     }
 }

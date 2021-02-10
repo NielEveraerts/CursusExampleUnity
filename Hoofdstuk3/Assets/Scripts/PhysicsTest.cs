@@ -60,4 +60,6 @@ public class PhysicsTest : MonoBehaviour
         GameObject spawnedBullet = Instantiate(bullet, bulletPos.position, bullet.transform.rotation);
         spawnedBullet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletSpeed);              //zie dat het bulletPreFab een rigidBody heeft, anders kan je geen velocity geven aan het object
     }
+
+    
 }

@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\CollisionTest.cs" />
      <Compile Include="Assets\Scripts\DeadZoneTest.cs" />
      <Compile Include="Assets\Scripts\LookAtTest.cs" />
+     <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

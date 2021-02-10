@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputTest : MonoBehaviour
 {
+    public float speed = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +30,14 @@ public class InputTest : MonoBehaviour
             print("jump button pressed down");
             GetComponent<Renderer>().material.color = Color.green;
         }
+
+        //
+        float xInput = Input.GetAxis("Horizontal")*speed*Time.deltaTime; //time.deltaTime zorgt ervoor dat de waarde niet frame dependant is (anders gaat het anders aanvaoelen op verschillende pc's), het gaat de waarde naar speed/seconde omvormen
+        float yInput = Input.GetAxis("Vertical")*speed*Time.deltaTime;
+
+        print(xInput);
+
+        transform.Translate(xInput, yInput, 0);   
+        Input.GetAxisRaw("Vertical");               //getAxis gaat geleidelijk van 0 naar 1, bij getAxisRaw gaat het direct van 0 naar 1 bij een input.
     }
 }

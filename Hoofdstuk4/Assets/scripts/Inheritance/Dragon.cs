@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Dragon : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public bool isAttacking = false;
+
+    private void Update(){
+        if(isAttacking){
+            Attack();
+            base.Attack();          //hiermee kan je de attack van de enemy klasse gebruiken ookal hebben we een attack functie in deze klasse
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Attack(){                  //standaard gaat dragon nu zijn eigen Attack() gebruiken ipv die van enemy
+        print("Dragon Attack");
     }
 }

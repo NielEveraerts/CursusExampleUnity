@@ -19,7 +19,6 @@ public class Car
         this.speed = speed;
         this.color = color;
         this.highestSpeed = highestSpeed;
-        PrintDetailsOfCar();
     }
 
 

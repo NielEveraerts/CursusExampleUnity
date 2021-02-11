@@ -16,6 +16,7 @@ public class ClassTest : MonoBehaviour
         // myCar.CarSpeed();
 
         // Car myCar2 = new Car(15f, "green", 150f);
+        myCar.PrintDetailsOfCar();
 
     }
 

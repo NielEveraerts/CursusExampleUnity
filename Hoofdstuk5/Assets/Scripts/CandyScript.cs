@@ -21,5 +21,9 @@ public class CandyScript : MonoBehaviour
             //score++ ofzoiets
             Destroy(gameObject);
         }
+        else if(collider.gameObject.tag == "Boundary"){
+            //verlaag levens
+            Destroy(gameObject);
+        }
     }
 }

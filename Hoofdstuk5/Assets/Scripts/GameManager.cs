@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     int score = 0;
+    int lives = 3;
 
     public Text scoreText;          //deze variable gaan we dan in de scene aan het text gameObject linken
 
@@ -32,7 +33,20 @@ public class GameManager : MonoBehaviour
     public void IncrimentScore(){
         score++;
         scoreText.text = score.ToString();      //score omvormen naar string en in het Text object steken
-        print(score);
+    }
+    
+    public void DecreaseLife(){
+        if(lives > 1){
+            lives--;
+            print(lives);
+        }
+        else{
+            gameOver = true;
+            GameOver();
+        }
     }
 
+    public void GameOver(){
+            print("GameOver");
+    }
 }

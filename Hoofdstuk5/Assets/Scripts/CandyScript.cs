@@ -18,11 +18,15 @@ public class CandyScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider){             //belangrijk dat je de functie juist staat
         if(collider.gameObject.tag == "Player"){
-            //score++ ofzoiets
+
+            GameManager.instance.IncrimentScore();  
+
             Destroy(gameObject);
         }
         else if(collider.gameObject.tag == "Boundary"){
-            //verlaag levens
+
+            //GameManager.instance.RemoveLive();
+
             Destroy(gameObject);
         }
     }

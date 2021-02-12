@@ -32,8 +32,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void IncrimentScore(){
-        score++;
-        scoreText.text = score.ToString();      //score omvormen naar string en in het Text object steken
+        if(!gameOver){
+            score++;
+            scoreText.text = score.ToString();      //score omvormen naar string en in het Text object steken
+        }
     }
     
     public void DecreaseLife(){
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver(){
-            print("GameOver");
+        CandySpawner.instance.StopSpawning();                                           //CandySpawner heeft een public instance en zo kunnen we aan de stopfunctie 
+        GameObject.Find("Player").GetComponent<PlayerController>().canMove = false;     //canMove is public dus gaan we de juiste component zoeken en daarin de canMove false zetten
     }
 }

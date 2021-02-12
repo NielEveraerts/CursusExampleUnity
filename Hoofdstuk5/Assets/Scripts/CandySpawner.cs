@@ -23,6 +23,9 @@ public class CandySpawner : MonoBehaviour
     void SpawnCandy(){
         int rnd = Random.Range(0, candies.Length);
 
-        Instantiate(candies[rnd], transform.position, transform.rotation);  //wat instantieren, waar, en in welke rotatie
+        float rndX = Random.Range(-maxX, maxX);
+        Vector3 rndPos = new Vector3(rndX, transform.position.y, transform.position.z); //neem de random xPos en neem de y en z van het gameObject
+        
+        Instantiate(candies[rnd], rndPos, transform.rotation);  //wat instantieren, waar, en in welke rotatie
     }
 }

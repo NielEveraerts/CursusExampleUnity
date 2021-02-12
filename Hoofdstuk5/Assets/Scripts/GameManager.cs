@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;          //deze variable gaan we dan in de scene aan het text gameObject linken
     public GameObject livesHolder;  //het paneel waarin de harten zitten
+    public GameObject gameOverPanel;
+
 
     bool gameOver = false;
 
@@ -53,5 +55,6 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         CandySpawner.instance.StopSpawning();                                           //CandySpawner heeft een public instance en zo kunnen we aan de stopfunctie 
         GameObject.Find("Player").GetComponent<PlayerController>().canMove = false;     //canMove is public dus gaan we de juiste component zoeken en daarin de canMove false zetten
+        gameOverPanel.SetActive(true);
     }
 }

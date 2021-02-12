@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         CandySpawner.instance.StopSpawning();                                           //CandySpawner heeft een public instance en zo kunnen we aan de stopfunctie 
         GameObject.Find("Player").GetComponent<PlayerController>().canMove = false;     //canMove is public dus gaan we de juiste component zoeken en daarin de canMove false zetten
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Candy");              //zoak alle candies (via tag) en stop die in array
+        foreach (var item in objects)                                                   //lus door array van gameObjecten
+        {
+            item.GetComponent<CandyScript>().DespawnCandy();                            //verwijder elk object dat nog zou aan het vallen zijn
+        }
         gameOverPanel.SetActive(true);
     }
 

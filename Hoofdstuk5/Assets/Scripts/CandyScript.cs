@@ -30,4 +30,8 @@ public class CandyScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    public void DespawnCandy(){
+        Destroy(gameObject);
+    }
 }

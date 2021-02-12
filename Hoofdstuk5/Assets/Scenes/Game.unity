@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxX: 7.3
-  spawnInterval: 1
+  spawnInterval: 0.5
   candies:
   - {fileID: 7367175779814709289, guid: 11534726273d30d49bef8aa5bff7f6e9, type: 3}
   - {fileID: 6920688525843765345, guid: 65205aec30ba63a48839ae865e87133e, type: 3}

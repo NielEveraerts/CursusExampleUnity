@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     int lives = 3;
 
     public Text scoreText;          //deze variable gaan we dan in de scene aan het text gameObject linken
+    public GameObject livesHolder;  //het paneel waarin de harten zitten
 
     bool gameOver = false;
 
@@ -36,11 +37,12 @@ public class GameManager : MonoBehaviour
     }
     
     public void DecreaseLife(){
-        if(lives > 1){
+        if(lives > 0){
             lives--;
             print(lives);
+            livesHolder.transform.GetChild(lives).gameObject.SetActive(false);  //aangezien lives zakt naar 2 -> en het derde childObject een index heeft van 2 kunnen we simpelweg zeggen: zet childObject met index lives inactief
         }
-        else{
+        if(lives <= 0){
             gameOver = true;
             GameOver();
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;               //nodig om het Text variable te maken
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -56,5 +57,13 @@ public class GameManager : MonoBehaviour
         CandySpawner.instance.StopSpawning();                                           //CandySpawner heeft een public instance en zo kunnen we aan de stopfunctie 
         GameObject.Find("Player").GetComponent<PlayerController>().canMove = false;     //canMove is public dus gaan we de juiste component zoeken en daarin de canMove false zetten
         gameOverPanel.SetActive(true);
+    }
+
+    public void Restart(){
+        SceneManager.LoadScene("Game");
+    }
+
+    public void ToMenu(){
+        SceneManager.LoadScene("Menu");
     }
 }

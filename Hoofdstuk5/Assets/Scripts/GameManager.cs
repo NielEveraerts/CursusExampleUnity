@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;               //nodig om het Text variable te maken
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     int score = 0;
+
+    public Text scoreText;          //deze variable gaan we dan in de scene aan het text gameObject linken
 
     bool gameOver = false;
 
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void IncrimentScore(){
         score++;
+        scoreText.text = score.ToString();      //score omvormen naar string en in het Text object steken
         print(score);
     }
 

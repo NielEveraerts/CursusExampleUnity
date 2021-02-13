@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TouchTest : MonoBehaviour
 {
+    Ray ray;
+
+    RaycastHit hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,15 @@ public class TouchTest : MonoBehaviour
             }
             if(Input.GetTouch(0).phase == TouchPhase.Ended){
                 Debug.Log("touch beeindigd");
+            }
+
+            if(Input.GetTouch(0).phase == TouchPhase.Began){        //enkel bij het begin van het indrukken, anders kan je met je vinger over de objecten sliden
+                ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                Debug.DrawRay(ray.origin, ray.direction *20, Color.red);
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity)){   //vraagt max lengte van ray en hier zeggen we dat die infinite mag zijn. en gaat als output de hitInfo in hit steken
+                    Debug.Log("Hit gameObject");
+                    Destroy(hit.transform.gameObject);                  //destroy het aangeraakte object
+                }
             }
         }
     }

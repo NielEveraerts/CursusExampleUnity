@@ -27,6 +27,7 @@ public class BallController : MonoBehaviour
         if(!Physics.Raycast(transform.position, Vector3.down, 1f)){  //positie van bal, ray naar beneden, en lengte van 1 -> als de ray niets raakt maak gameOver = true
             gameOver = true;
             //rb.velocity = new Vector3(rb.velocity.x,-25f,rb.velocity.y);      //in cursus is gravity afgezet en voeg je handamatig verticale velocity toe, ik vind dat onnuttig en gebruik ingebouwde gravity
+            Camera.main.GetComponent<CameraFollow>().gameOver = true;           //get gameOver van het script van de main camera
         };
 
         if(!started){

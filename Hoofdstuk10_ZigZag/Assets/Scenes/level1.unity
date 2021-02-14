@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 8870965229465945817, guid: be74e5889f8b7054db9232c4f55841d0, type: 3}
+  gameOver: 0
 --- !u!4 &529828723
 Transform:
   m_ObjectHideFlags: 0

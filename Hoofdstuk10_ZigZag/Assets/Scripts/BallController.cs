@@ -60,6 +60,7 @@ public class BallController : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.tag == "Diamond"){
+            ScoreManager.instance.IncrementScore();
             GameObject particleInstance = Instantiate(particle, col.gameObject.transform.position, Quaternion.identity);  //doen voordat je de diamond delete want anders kan je zijn positie niet meer vastkrijgen
             Destroy(col.gameObject);
             Destroy(particleInstance, 1f);  //anders blijven de particles veel te lang op het scherm

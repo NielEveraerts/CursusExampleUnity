@@ -16,15 +16,18 @@ public class PlatformSpawner : MonoBehaviour
         size = platform.transform.localScale.x;
         lastPos = platform.transform.position;
 
-        InvokeRepeating("SpawnPlatforms", 2f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameOver){
+        if(GameManager.instance.gameOver){
             CancelInvoke("SpawnPlatforms");
         }
+    }
+
+    public void StartSpawning(){
+        InvokeRepeating("SpawnPlatforms", 0f, 0.15f);
     }
 
     void SpawnPlatforms(){

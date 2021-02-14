@@ -26,10 +26,12 @@ public class GameManager : MonoBehaviour
     public void StartGame(){
         UIManager.instance.GameStart();
         ScoreManager.instance.startScore();
+        GameObject.Find("PlatformSpawner").GetComponent<PlatformSpawner>().StartSpawning();     //bij starten van game: zoek de spawner, neem de het scriptcomponent en voer de startspawning functie uit;
     }
 
     public void GameOver(){
         UIManager.instance.GameOver();
         ScoreManager.instance.stopScore();
+        gameOver = true;
     }
 }

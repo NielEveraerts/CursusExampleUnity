@@ -27,13 +27,14 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    void IncrementScore(){
+    public void IncrementScore(){
         score++;
     }
 
     public void startScore(){
         InvokeRepeating("IncrementScore",0.1f,0.5f);
     }
+
     public void stopScore(){
         CancelInvoke("IncrementScore");
         PlayerPrefs.SetInt("score",score);                  //hiermee sla je de score op op je pc of gsm

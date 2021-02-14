@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     private float speed;
 
     bool started = false;
+    bool gameOver = false;
 
     Rigidbody rb;
 
@@ -17,12 +18,17 @@ public class BallController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!Physics.Raycast(transform.position, Vector3.down, 1f)){  //positie van bal, ray naar beneden, en lengte van 1 -> als de ray niets raakt maak gameOver = true
+            gameOver = true;
+            //rb.velocity = new Vector3(rb.velocity.x,-25f,rb.velocity.y);      //in cursus is gravity afgezet en voeg je handamatig verticale velocity toe, ik vind dat onnuttig en gebruik ingebouwde gravity
+        };
+
         if(!started){
             if(Input.GetMouseButtonDown(0)){       //bij elke linkermuisklik switchDirection()
                 rb.velocity = new Vector3(speed,0,0);   //start met in de x as een velocity van speed te geven.
@@ -30,7 +36,7 @@ public class BallController : MonoBehaviour
             }
         }
         else{
-            if(Input.GetMouseButtonDown(0)){       //bij elke linkermuisklik switchDirection()
+            if(Input.GetMouseButtonDown(0) && !gameOver){       //bij elke linkermuisklik switchDirection()
                 SwitchDirection();
             }
         }

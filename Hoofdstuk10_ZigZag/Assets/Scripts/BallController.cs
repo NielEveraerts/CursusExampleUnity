@@ -58,7 +58,7 @@ public class BallController : MonoBehaviour
         if(col.gameObject.tag == "Diamond"){
             GameObject particleInstance = Instantiate(particle, col.gameObject.transform.position, Quaternion.identity);  //doen voordat je de diamond delete want anders kan je zijn positie niet meer vastkrijgen
             Destroy(col.gameObject);
-            Destroy(particle, 1f);  //anders blijven de particles veel te lang op het scherm
+            Destroy(particleInstance, 1f);  //anders blijven de particles veel te lang op het scherm
         }
     }
 }

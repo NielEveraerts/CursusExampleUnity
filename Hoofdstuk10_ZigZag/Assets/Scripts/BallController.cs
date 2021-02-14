@@ -12,6 +12,8 @@ public class BallController : MonoBehaviour
 
     Rigidbody rb;
 
+    public GameObject particle;
+
     void Awake(){       //is opgeroepen voor de awake functie
         rb = GetComponent<Rigidbody>();
     }
@@ -54,7 +56,9 @@ public class BallController : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.tag == "Diamond"){
+            GameObject particleInstance = Instantiate(particle, col.gameObject.transform.position, Quaternion.identity);  //doen voordat je de diamond delete want anders kan je zijn positie niet meer vastkrijgen
             Destroy(col.gameObject);
+            Destroy(particle, 1f);  //anders blijven de particles veel te lang op het scherm
         }
     }
 }

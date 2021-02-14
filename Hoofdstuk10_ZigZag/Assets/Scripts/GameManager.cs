@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    public bool gameOver = false;
+    void Awake(){
+        if(instance == null){
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +21,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartGame(){
+        UIManager.instance.GameStart();
+        ScoreManager.instance.startScore();
+    }
+
+    public void GameOver(){
+        UIManager.instance.GameOver();
+        ScoreManager.instance.stopScore();
     }
 }
